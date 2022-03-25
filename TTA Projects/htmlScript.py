@@ -27,14 +27,14 @@ def load_gui(self):
     self.txt_enterText.grid(row=0, column=1, pady=(10))
 
     # Button for submission of new HTML body text.
-    self.btn_submit = Button(self.root, text="Submit", command=getTextInput)
+    self.btn_submit = Button(self.root, text="Submit", command=lambda: getTextInput(self))
     self.btn_submit.grid(row=1, column=1, sticky=E)
 
 
 # This will take text input from window and create new file with it added in as HTML.
 # A web browser will then open.
-def getTextInput():
-    text = self.root.txt_enterText.get('1.0', END)
+def getTextInput(self):
+    text = self.txt_enterText.get('1.0', END)
     file = open("script.html", 'w')
     file.write("<html><body><h1>" + text + "</h1></body></html>")
     file.close()
