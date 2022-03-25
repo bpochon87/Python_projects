@@ -6,6 +6,8 @@
 # Will allow files to be moved
 import shutil
 
+from datetime import date
+
 # This will allow us to convert from epoch to local time.
 import time
 
@@ -38,10 +40,12 @@ def moveFile():
     for file in files:
         # If .txt is found, call on convertTime() and pass in that file.
         if txtSuffix in file:
-            convertTime(file)
-            if qualModTime <= 24:
+            fileModificationDate = convertTime(file)
+            # From datetime module bringing in today's date.
+            todayDate = date.today()
+            if todayDate == fileModificationDate:
                 shutil.move(source + file, destination)
-            
+          
         
 
 def convertTime(file):
@@ -51,8 +55,8 @@ def convertTime(file):
     modTimeEpoch = os.path.getmtime('D:/Users/bpoch/Desktop/FolderA/' + file)
     # Convert seconds since epoch to readable timestamp. We're only concerned about the
     # past 24 hours.
-    qualModTime = time.strftime('%H', time.localtime(modTimeEpoch))
-    return qualModTime
+    return time.strftime('%Y-%m-%d', time.localtime(modTimeEpoch))
+
     
     
 
