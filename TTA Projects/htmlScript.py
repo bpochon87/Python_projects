@@ -38,7 +38,7 @@ def getTextInput(self):
     file = open("script.html", 'w')
     file.write("<html><body><h1>" + text + "</h1></body></html>")
     file.close()
-    webbrowser.open_new('D:/Users/bpoch/Desktop/Python projects/script.html')
+    webbrowser.open_new('script.html')
     
     
 
