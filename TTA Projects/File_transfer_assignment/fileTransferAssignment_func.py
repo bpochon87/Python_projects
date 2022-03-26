@@ -17,14 +17,12 @@ import os
 import fileTransferAssignment_main
 import fileTransferAssignment_gui
 
-# Source folder where we'll check files and their modification times.
-source = self.browseButton1Text.get()
 
-# Destination folder where <24 hour modified files will be transferred to.
-destination = self.browseButton2Text.get()
-
-
-def transferFiles():
+def transferFiles(self):
+    # Source folder where we'll check files and their modification times.
+    source = self.browseButton1Text.get()
+    # Destination folder where <24 hour modified files will be transferred to.
+    destination = self.browseButton2Text.get()
     # Setting variable for .txt suffix only files.
     txtSuffix = '.txt'
     # Creating list of files from source file path.
@@ -33,20 +31,20 @@ def transferFiles():
     for file in files:
         # If .txt is found, call on convertTime() and pass in that file.
         if txtSuffix in file:
-            fileModificationDate = convertTime(file)
+            fileModificationDate = convertTime(file, self)
             # From datetime module bringing in today's date.
             todayDate = datetime.now()
             twentyFourHoursAgo = todayDate - timedelta(hours=24)
             if fileModificationDate > twentyFourHoursAgo:
-                shutil.move(source + file, destination)
+                shutil.move(source + '/' + file, destination)
           
         
 
-def convertTime(file):
+def convertTime(file, self):
     # Letting this function know path.
     source = self.browseButton1Text.get()
     # Returning mod time in epoch.
-    modTimeEpoch = os.path.getmtime(source + file)
+    modTimeEpoch = os.path.getmtime(source + '/' + file)
     return datetime.fromtimestamp(modTimeEpoch)
 
 
