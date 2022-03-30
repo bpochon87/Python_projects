@@ -7,7 +7,7 @@
 </ul>
   
 <h3>A "Check Files" GUI</h3>
-This graphical-user interface (GUI) allows a user to select a "from" directory and a "to" directory. Once selected, the program iterates through the "from" directory's file list, ascertains which files are within a day old (24 hours), and moves only those that qualify and are text (.txt) files. Built with Python and Tkinter for the GUI.
+This graphical-user interface (GUI) allows a user to select a "from" directory and a "to" directory. Once selected, the program iterates through the "from" directory's file list, ascertains which files are within 24 hours old, and moves only those that qualify and are text (.txt) files. Built with Python and Tkinter for the GUI.
   
 <h3>Phonebook</h3>
 This graphical-user interface (GUI) allows a user to enter in details about a contact they'd like to add. The ability to add, update, and delete contacts is contained and functioning. Built with Python and Tkinter.
