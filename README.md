@@ -1,4 +1,4 @@
-# Python_projects
+# Python Projects
 
 <ul>
   <li><a href="https://github.com/bpochon87/Python_projects/tree/main/TTA%20Projects/File_transfer_assignment" target="_blank">A "Check Files" GUI</a></li>
